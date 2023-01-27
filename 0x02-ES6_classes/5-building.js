@@ -1,14 +1,14 @@
 export default class Building {
   constructor(sqft) {
-    if (typeof (sqft) !== 'number') {
-      throw TypeError('sqft should be a number');
-    } else {
-      this._sqft = sqft; // eslint-disable-line no-underscore-dangle
+    // Checking if initialization is not from parent class
+    if (this.constructor !== Building) {
+      // Checking if the function exists
+      if (typeof (this.evacuationWarningMessage) !== 'function') {
+        throw new Error('Class extending Building must override evacuationWarningMessage');
+      }
     }
 
-    if (this.evacuationWarningMessage === undefined) {
-      throw new Error('Class extending Building must override evacuationWarningMessage');
-    }
+    this._sqft = sqft; // eslint-disable-line no-underscore-dangle
   }
 
   get sqft() {

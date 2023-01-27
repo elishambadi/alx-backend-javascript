@@ -6,7 +6,8 @@ console.log(b);
 class TestBuilding extends Building {}
 
 try {
-  new TestBuilding(200); // eslint-disable-line no-new
+  const build = new TestBuilding(200, 'The buidling is in danger');// eslint-disable-line no-new
+  build.evacuationWarningMessage('The buidling is in danger');
 } catch (err) {
   console.log(err);
 }
