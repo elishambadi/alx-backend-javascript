@@ -12,7 +12,11 @@ export default class HolbertonCourse {
       throw TypeError('Length must be a number');
     }
 
-    this._students = students; // eslint-disable-line no-underscore-dangle
+    if (Array.isArray(students)) {
+      this._students = students; // eslint-disable-line no-underscore-dangle
+    } else {
+      throw TypeError('Students must be an array');
+    }
   }
 
   get name() {
@@ -44,6 +48,10 @@ export default class HolbertonCourse {
   }
 
   set students(val) {
-    this._students = val; // eslint-disable-line no-underscore-dangle
+    if (Array.isArray(val)) {
+      this._students = val; // eslint-disable-line no-underscore-dangle
+    } else {
+      throw TypeError('Students must be an array');
+    }
   }
 }
