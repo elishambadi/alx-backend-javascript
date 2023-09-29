@@ -1,4 +1,4 @@
-function handleResponseFromAPI(promise) {
+export function handleResponseFromAPI(promise) {
   return promise
     .then((result) => {
       return { status: 200, body: 'success' };
